@@ -213,12 +213,16 @@ SDL_FRect Text::calcCharacterOffset(std::size_t index)
     return offsetExtent;
 }
 
-int Text::calcStringWidth(const std::string& string)
+int Text::calcStringWidth(std::string_view string)
 {
+    if (!font.get()) {
+        return 0;
+    }
+
     // Calculate the width that the given string would have if rendered using
     // the current font.
     int stringWidth{0};
-    TTF_GetStringSize(font.get(), string.c_str(), string.size(), &(stringWidth),
+    TTF_GetStringSize(font.get(), string.data(), string.size(), &(stringWidth),
                       nullptr);
 
     return stringWidth;

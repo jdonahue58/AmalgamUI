@@ -164,7 +164,7 @@ public:
      * this widget's current font.
      * Note: This doesn't take word wrapping into account.
      */
-    int calcStringWidth(const std::string& string);
+    int calcStringWidth(std::string_view string);
 
     /**
      * Returns the logical extent of the current generated text texture.
