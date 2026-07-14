@@ -51,17 +51,20 @@ class Log
 {
 public:
     /**
-     * Prints the given info to stdout (and a file, if enableFileLogging() was
-     * called.), then flushes the buffer.
+     * Prints the given info, then flushes the buffer.
      */
     static void info(const char* expression, ...);
 
     /**
-     * Prints the given info to stdout (and a file, if enableFileLogging() was
-     * called.), then flushes the buffer and calls abort().
+     * Prints the given info, then flushes the buffer.
      */
     static void error(const char* fileName, int line, const char* expression,
                       ...);
+
+    /**
+     * Enables printing to stdout.
+     */
+    static void enableStdoutLogging();
 
     /**
      * Opens a file with the given file name and enables file logging.
